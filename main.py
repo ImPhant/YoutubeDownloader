@@ -37,7 +37,7 @@ def songDownloader(video):
         for song in urls:
             song = song.replace('\n', '')
             sng = YouTube(song).streams.filter(only_audio=True).first()
-            fileName = sng.download(f'songs\{path}')
+            fileName = sng.download(f'songs/{path}')
             rename(fileName, fileName.replace('.mp4', '.mp3'))
             print('Downloaded - {}'.format(fileName.replace('.mp4', '.mp3')))
         print('Finished!')
